@@ -34,9 +34,5 @@
 
 <img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/9b61f9c8-9fc9-46a5-bd8c-f724c24831d1" />
 
-
-
-
-https://github.com/user-attachments/assets/c5946376-0f15-4256-98e4-9a5606400436
-
+![colors](https://github.com/user-attachments/assets/531ac9ab-d077-4e59-804d-065c5efd08f8)
 
