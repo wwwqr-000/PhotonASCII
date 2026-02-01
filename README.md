@@ -20,3 +20,11 @@
 <h1>Bresenham + Lambert-Beer</h1>
 
 <img width="908" height="383" alt="image" src="https://github.com/user-attachments/assets/ccfbc082-8610-400f-a2ed-d253e58344a1" />
+
+<h1>Instructions</h1>
+
+<p>First, you will need to get the <code>photon-ascii</code> folder and it's contents.</p>
+<p>Then, simply create a main.cpp file at the level of the folder, and place this line at the top of your<code>main.cpp</code> file:</p>
+<code>#include "photon-ascii/self.hpp"</code>
+<p>That's it. You can add and edit stuff in the folder to your likings, and for a working example, have a look at the <code>main.cpp</code> file in this repo.</p>
+<h5>Have fun casting chars as photons!</h5>
