@@ -33,3 +33,10 @@
 <h1>Color and light blend</h1>
 
 <img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/9b61f9c8-9fc9-46a5-bd8c-f724c24831d1" />
+
+
+
+
+https://github.com/user-attachments/assets/c5946376-0f15-4256-98e4-9a5606400436
+
+
