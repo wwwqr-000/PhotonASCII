@@ -2,8 +2,6 @@
 
 namespace pa {
 
-#define TERMINAL_ASPECT 2.0f
-
 class Light {
 	private:
 		Vec2 pos_;

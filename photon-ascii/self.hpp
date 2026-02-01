@@ -9,9 +9,17 @@
 #include <atomic>
 #include <csignal>
 
-//Dimensions of the screen/ canvas
+//Dimensions of the screen/ canvas in char-count
 #define SCENE_WIDTH 100
 #define SCENE_HEIGHT 20
+//
+
+//The aspect ratio of the terminal (Default value 2.0f)
+#define TERMINAL_ASPECT 2.0f
+//
+
+//The command to clear the terminal on your OS (windows: cls, linux: clear)
+#define CLS_CMD "clear"
 //
 
 //Preloads
@@ -36,7 +44,7 @@ namespace pa {
 #include "models/include.hpp"
 
 namespace pa {
-	void cls() { system("clear"); }
+	void cls() { system(CLS_CMD); }
 	int ftoi(float f) { return static_cast<int>(std::round(f)); }
 	void sleep(int ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
 	void hideCursor() { std::cout << "\033[?25l" << std::flush; }
