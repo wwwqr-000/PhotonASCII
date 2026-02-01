@@ -49,7 +49,7 @@ int main() {
 
     while (pa::running) {
         pa::display();
-        pa::sleep(8);
+        pa::sleep(0);
         if (tickCount >= 120) {
         	tickCount = 0;
             v = v == 1 ? -1 : 1;
