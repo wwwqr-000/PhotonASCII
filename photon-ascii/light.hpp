@@ -1,5 +1,6 @@
 #pragma once
 
+namespace pa {
 
 #define TERMINAL_ASPECT 2.0f
 
@@ -103,4 +104,6 @@ void traceColor(Pixel &p, std::vector<Light> &lights) {
 	p.color().xi() = std::min(255, result.xi());
 	p.color().yi() = std::min(255, result.yi());
 	p.color().zi() = std::min(255, result.zi());
+}
+
 }

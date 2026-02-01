@@ -1,51 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-#include <chrono>
-#include <thread>
-#include <atomic>
-#include <csignal>
-
-#define SCENE_WIDTH 100
-#define SCENE_HEIGHT 20
-
-//Preloads
-int ftoi(float);
-//
-
-#include "vec2.hpp"
-#include "vec3.hpp"
-#include "pixel.hpp"
-#include "light.hpp"
-
-//Global vars
-//std::vector<Pixel> pixels;// in pixel.hpp
-std::vector<Light> lights;
-std::atomic<bool> running(true);
-//
-
-#include "tree.hpp"
-#include "table.hpp"
-#include "candle.hpp"
-
-#include "world-gen.hpp"
+#include "photon-ascii/self.hpp"
 
 void create() {
-    pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, Pixel());
+    pa::pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, pa::Pixel());
 
     for (int y = 0; y < SCENE_HEIGHT; y++) {
         for (int x = 0; x < SCENE_WIDTH; x++) {
-            Pixel* p = getPixelAt(x, y);
+            pa::Pixel* p = pa::getPixelAt(x, y);
             if (!p) { continue; }
 			//Vec3 color(2 * x, y * 2, 255);
-			Vec3 color(255, 255, 255);
+			pa::Vec3 color(255, 255, 255);
 
 			if (y == 19) {
-				color = Vec3(0, 255, 0);
+				color = pa::Vec3(0, 255, 0);
 			}
 
-            p->pos() = Vec2(x, y);
+            p->pos() = pa::Vec2(x, y);
             p->baseColor() = color;
             p->color() = color;
             p->c() = '@';
@@ -53,50 +22,53 @@ void create() {
     }
 }
 
-void cls() {
-	system("clear");
-}
+void worldGen() {//You can use {} instead of Vec2 or Vec3, etc
+    //Trees
+	pa::tree(pa::Vec2(30, 18), 5, 2, 3);
+	pa::tree(pa::Vec2(40, 18), 6, 3, 4);
+    pa::tree(pa::Vec2(55, 18), 2, 1, 2);
+    pa::tree(pa::Vec2(20, 18), 1, 1, 2);
+    pa::tree(pa::Vec2(70, 18), 10, 4, 6);
+	//
 
-int ftoi(float f) {//Float to int
-	return static_cast<int>(std::round(f));
-}
+    //Lights
+	pa::lights.push_back(pa::Light({42, 0}, -1, 0.5f, {255, 255, 255}));
+	//
 
-void sleep(int ms) {
-	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
-}
+    //Tables
+    pa::table({7, 16}, {8, 2}, 2);
+	//
 
-void hideCursor() {
-	std::cout << "\033[?25l" << std::flush;
-}
+    //Candles
+    pa::candle({10, 15}, {255, 0, 0}, 0);
+    pa::candle({32, 16}, {112, 0, 156}, 1);
+	pa::candle({94, 13}, {255, 255, 255}, 0);
+	//
 
-void showCursor() {
-	std::cout << "\033[?25h" << std::flush;
-}
+	/*
+    //Second worldGen
+    pa::lights.push_back(pa::Light({42, 1}, 200, 1.0f, {255, 255, 255}));
+    pa::tree(pa::Vec2(55, 18), 8, 4, 5);
 
-void handleSigint(int) {
-	showCursor();
-	running = false;
-}
+    pa::Vec3 purple(133, 10, 181);
 
-void display() {
-	for (Pixel &p : pixels) {
-    	traceColor(p, lights);
-    	std::cout << "\033[" << p.pos().yi() + 1 << ";" << p.pos().xi() + 1 << "H"
-              	<< "\033[38;2;" << p.color().xi() << ";" << p.color().yi() << ";" << p.color().zi() << "m"
-              	<< p.c() << "\033[0m";
-	}
+    for (int i = 0; i < 10; i++) {
+            pa::setPixel({30 + i, 10}, purple, '#', 0.22f);
+    }
+    //
+    */
 }
 
 int main() {
-	cls();
-	hideCursor();
-	std::signal(SIGINT, handleSigint);//Handle ctrl-c (To set cursor back to default)
+	pa::cls();//You don't have to trigger this cls if you're using a tick-loop for frames, pa::display doesn't need it to update
+	pa::hideCursor();
+	pa::setCursorHandler();//When ctrl-c is triggered, show cursor again
 
 	create();
 	worldGen();
-	display();
+	pa::display();
 
-	showCursor();
+	pa::showCursor();
 	std::cout << "\n";
 	return 0;
 }

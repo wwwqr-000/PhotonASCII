@@ -1,5 +1,7 @@
 #pragma once
 
+namespace pa {
+
 class Vec3 : public Vec2 {
 	private:
 		int zi_;
@@ -30,3 +32,5 @@ class Vec3 : public Vec2 {
 		}
 
 };
+
+}

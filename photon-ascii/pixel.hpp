@@ -1,5 +1,7 @@
 #pragma once
 
+namespace pa {
+
 class Pixel {
 	private:
 		Vec2 pos_;
@@ -35,4 +37,6 @@ void setPixel(Vec2 pos, Vec3 color, char c, float opacity = 0.0f) {
 	p->baseColor() = color;
 	p->c() = c;
 	p->opacity() = opacity;
+}
+
 }

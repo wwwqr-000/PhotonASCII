@@ -1,0 +1,54 @@
+#pragma once
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <chrono>
+#include <thread>
+#include <atomic>
+#include <csignal>
+
+//Dimensions of the screen/ canvas
+#define SCENE_WIDTH 100
+#define SCENE_HEIGHT 20
+//
+
+//Preloads
+namespace pa {
+	int ftoi(float);
+}
+//
+
+#include "vec2.hpp"
+#include "vec3.hpp"
+#include "pixel.hpp"
+#include "light.hpp"
+
+//Global vars
+//std::vector<Pixel> pixels;// in pixel.hpp
+namespace pa {
+	std::vector<Light> lights;
+	std::atomic<bool> running(true);
+}
+//
+
+#include "models/include.hpp"
+
+namespace pa {
+	void cls() { system("clear"); }
+	int ftoi(float f) { return static_cast<int>(std::round(f)); }
+	void sleep(int ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
+	void hideCursor() { std::cout << "\033[?25l" << std::flush; }
+	void showCursor() { std::cout << "\033[?25h" << std::flush; }
+	void handleSigint(int) { showCursor(); running = false; }
+	void setCursorHandler() { std::signal(SIGINT, handleSigint); }
+	void display() {
+		for (Pixel &p : pixels) {
+    		traceColor(p, lights);
+    		std::cout << "\033[" << p.pos().yi() + 1 << ";" << p.pos().xi() + 1 << "H"
+              		<< "\033[38;2;" << p.color().xi() << ";" << p.color().yi() << ";" << p.color().zi() << "m"
+              		<< p.c() << "\033[0m";
+		}
+	}
+}

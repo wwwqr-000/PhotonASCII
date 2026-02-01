@@ -1,3 +1,7 @@
+#pragma once
+
+namespace pa {
+
 void tree(Vec2 origin, int height, int width, int leaveHeight) {
     Vec3 color(137, 75, 4);
 
@@ -17,4 +21,6 @@ void tree(Vec2 origin, int height, int width, int leaveHeight) {
     	}
 	}
 	//
+}
+
 }

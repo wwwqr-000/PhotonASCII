@@ -1,5 +1,7 @@
 #pragma once
 
+namespace pa {
+
 #define farg float x, float y
 #define iarg int x, int y
 #define xfres this->xf_ = 0.0f;
@@ -44,3 +46,5 @@ class Vec2 {
 		}
 
 };
+
+}

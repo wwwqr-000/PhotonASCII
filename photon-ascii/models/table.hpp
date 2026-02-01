@@ -1,3 +1,7 @@
+#pragma once
+
+namespace pa {
+
 void table(Vec2 pos, Vec2 dimensions, int overhang) {
     Vec3 color(157, 84, 0);
     const char filler = '#';
@@ -23,4 +27,6 @@ void table(Vec2 pos, Vec2 dimensions, int overhang) {
         setPixel({rightLegX, y0 + y}, color, filler, 1.0f);
     }
 	//
+}
+
 }
