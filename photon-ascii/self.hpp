@@ -22,6 +22,10 @@
 #define CLS_CMD "clear"
 //
 
+//Other defines
+#define RGB_FLOAT_ROOF 255.0f
+//
+
 //Preloads
 namespace pa {
 	int ftoi(float);

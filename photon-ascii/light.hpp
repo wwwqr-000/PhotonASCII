@@ -67,9 +67,9 @@ bool traceLight(Vec2 from, Vec2 to, float &transmission, Vec3 &filter) {//Bresen
 		transmission *= (1.0f - op);
 
 		if (op > 0.0f) {
-			filter.xi() = ftoi(filter.xi() * ((1.0f - op) + (p->baseColor().xi()/255.0f) * op));
-    		filter.yi() = ftoi(filter.yi() * ((1.0f - op) + (p->baseColor().yi()/255.0f) * op));
-    		filter.zi() = ftoi(filter.zi() * ((1.0f - op) + (p->baseColor().zi()/255.0f) * op));
+			filter.xi() = ftoi(filter.xi() * ((1.0f - op) + (p->baseColor().xi()/RGB_FLOAT_ROOF) * op));
+    		filter.yi() = ftoi(filter.yi() * ((1.0f - op) + (p->baseColor().yi()/RGB_FLOAT_ROOF) * op));
+    		filter.zi() = ftoi(filter.zi() * ((1.0f - op) + (p->baseColor().zi()/RGB_FLOAT_ROOF) * op));
 		}
 
         if (transmission <= 0.001f) { return false; }
@@ -81,7 +81,6 @@ bool traceLight(Vec2 from, Vec2 to, float &transmission, Vec3 &filter) {//Bresen
 void traceColor(Pixel &p, std::vector<Light> &lights) {
 	Vec3 result(0, 0, 0);
     Vec3 &bc = p.baseColor();
-    float rgbMax = 255.0f;
 
 	for (Light &light : lights) {
     	float transmission;
@@ -90,13 +89,13 @@ void traceColor(Pixel &p, std::vector<Light> &lights) {
     	if (!traceLight(light.pos(), p.pos(), transmission, filter)) { continue; }
     	float i = calcLightIntens(p.pos(), light) * transmission;
 
-		float lr = light.color().xi() * (filter.xi() / 255.0f);
-		float lg = light.color().yi() * (filter.yi() / 255.0f);
-		float lb = light.color().zi() * (filter.zi() / 255.0f);
+		float lr = light.color().xi() * (filter.xi() / RGB_FLOAT_ROOF);
+		float lg = light.color().yi() * (filter.yi() / RGB_FLOAT_ROOF);
+		float lb = light.color().zi() * (filter.zi() / RGB_FLOAT_ROOF);
 
-    	result.xi() += ftoi(bc.xi() * (lr / 255.0f) * i);
-    	result.yi() += ftoi(bc.yi() * (lg / 255.0f) * i);
-    	result.zi() += ftoi(bc.zi() * (lb / 255.0f) * i);
+    	result.xi() += ftoi(bc.xi() * (lr / RGB_FLOAT_ROOF) * i);
+    	result.yi() += ftoi(bc.yi() * (lg / RGB_FLOAT_ROOF) * i);
+    	result.zi() += ftoi(bc.zi() * (lb / RGB_FLOAT_ROOF) * i);
 	}
 
 	p.color().xi() = std::min(255, result.xi());
