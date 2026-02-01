@@ -28,3 +28,7 @@
 <h1>Bresenham + Lambert-Beer</h1>
 
 <img width="908" height="383" alt="image" src="https://github.com/user-attachments/assets/ccfbc082-8610-400f-a2ed-d253e58344a1" />
+
+<h1>color and light blend</h1>
+
+<img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/9b61f9c8-9fc9-46a5-bd8c-f724c24831d1" />
