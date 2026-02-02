@@ -39,7 +39,7 @@ void createLampStructure(pa::Vec2 pos) {
 	std::vector<pa::Pixel> pixels;
 	pa::Vec3 color(33, 197, 0);//Lamp frame color
 	pa::Vec3 lColor(255, 234, 113);//Lamp light color
-	float frameDensity = 0.5;
+	float frameDensity = 0.8;
 
 	for (int i = 0; i < 3; i++) {
 		pixels.emplace_back(pa::Pixel({0, i}, color, '#', frameDensity));
@@ -55,7 +55,18 @@ void createLampStructure(pa::Vec2 pos) {
 	pixels.emplace_back(pa::Pixel({-3, 4}, color, '#', frameDensity));
 	pixels.emplace_back(pa::Pixel({3, 4}, color, '#', frameDensity));
 
-	pa::lights.push_back(pa::Light({0 + pos.xi(), 4 + pos.yi()}, 30, 1.5f, lColor));
+	pa::lights.push_back(pa::Light({0 + pos.xi(), 4 + pos.yi()}, 50, 1.5f, lColor));
+
+	pa::structures.push_back(pa::Structure(pixels, pos));
+}
+
+void createWindowStructure(pa::Vec2 pos, int height) {
+	std::vector<pa::Pixel> pixels;
+	pa::Vec3 color(113, 201, 255);
+
+	for (int i = 0; i < height; i++) {
+		pixels.emplace_back(pa::Pixel({0, i}, color, '#', 0.2f));
+	}
 
 	pa::structures.push_back(pa::Structure(pixels, pos));
 }
@@ -69,7 +80,11 @@ int main() {
 	create();
 	loadScene();
 
+	//Create structures
 	createLampStructure({50, 4});
+	createWindowStructure({70, 13}, 3);
+	//
+
 	pa::updateStructures();
 	pa::display();
 
