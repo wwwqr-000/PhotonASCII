@@ -21,7 +21,6 @@ void loadScene() {
 	pa::line({10, 4}, {70, 40}, {255, 0, 0}, '#', 0.2f);
 	pa::line({9, 4}, {69, 40}, {0, 0, 255}, '#', 0.2f);
 	pa::line({50, 7}, {50, 17}, {0, 255, 0}, '#', 0.4f);
-	pa::line({60, 10}, {60, 13}, {0, 255, 255}, '#', 0.4f);
 
 	//Barrel
 	int startX = 87;
@@ -36,17 +35,17 @@ void loadScene() {
 	pa::lights.push_back(pa::Light({startX + width, startY + 1}, -1, 1.5f, {255, 255, 255}));
 }
 
-pa::Structure createTestStructure(pa::Vec2 pos) {
+void createTestStructure(pa::Vec2 pos) {
 	std::vector<pa::Pixel> pixels;
-	pa::Vec3 color(255, 0, 0);
+	pa::Vec3 color(0, 255, 255);
 
-	for (int y = 0; y < 5; y++) {
-		for (int x = 0; x < 5; x++) {
-			pixels.emplace_back(pa::Pixel({x, y}, color, '#'));
+	for (int y = 0; y < 4; y++) {
+		for (int x = 0; x < 1; x++) {
+			pixels.emplace_back(pa::Pixel({x, y}, color, '#', 0.4f));
 		}
 	}
 
-	return pa::Structure(pixels, pos);
+	pa::structures.push_back(pa::Structure(pixels, pos));
 }
 
 int main() {
@@ -58,10 +57,23 @@ int main() {
 	create();
 	loadScene();
 
-	pa::Structure test = createTestStructure({65, 10});
-	pa::updateStructure(test);
+	createTestStructure({65, 7});
 
-	pa::display();
+	int tickCount = 0;
+    int v = 1;
+
+    while (pa::running) {
+		pa::updateStructures();
+        pa::display();
+        pa::sleep(100);
+        if (tickCount >= 5) {
+        	tickCount = 0;
+            v = v == 1 ? -1 : 1;
+        }
+
+        pa::structures[0].pos().yi() += v;
+        tickCount += 1;
+	}
 
 	pa::showCursor();
 	std::cout << "\n";
