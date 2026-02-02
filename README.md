@@ -17,7 +17,8 @@
 
 <h4>Have fun casting chars as photons!</h4>
 
-<img width="897" height="368" alt="image" src="https://github.com/user-attachments/assets/041140ad-150a-4320-a4d2-e2a1e42beb6e" />
+<img width="1035" height="415" alt="image" src="https://github.com/user-attachments/assets/59170166-c2b0-4107-98a1-4860d435fb8f" />
+
 
 
 <h1>Color Blend</h1>
