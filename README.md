@@ -38,4 +38,5 @@
 
 <h1>"Spotlight"</h1>
 
-<img width="1206" height="462" alt="image" src="https://github.com/user-attachments/assets/10975d3c-a9f4-4e0a-b9e8-b11dd3b4f900" />
+<img width="1206" height="457" alt="image" src="https://github.com/user-attachments/assets/88a79376-b6c9-42f3-90b9-87c85bc473cf" />
+
