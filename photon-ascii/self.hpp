@@ -46,7 +46,7 @@ namespace pa {
 //
 
 #include "models/include.hpp"
-
+#include "structure.hpp"
 namespace pa {
 	void start() { pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, Pixel()); }
 	void cls() { system(CLS_CMD); }
