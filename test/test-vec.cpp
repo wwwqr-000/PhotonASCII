@@ -1,16 +1,16 @@
 #include <iostream>
 
-#include "../vec2.hpp"
-#include "../vec3.hpp"
+#include "../photon-ascii/vec2.hpp"
+#include "../photon-ascii/vec3.hpp"
 
 int main() {
-	Vec2 v(10, 50);
+	pa::Vec2 v(10, 50);
 	v.xf() = 5.7f;
 	v.yf() = 2.3f;
 	std::cout << "Integer: " << v.xi() << " " << v.yi() << "\n";
 	std::cout << "Float: " << v.xf() << " " << v.yf() << "\n";
 
-	Vec3 v3(10, 20, 30);
+	pa::Vec3 v3(10, 20, 30);
 	//v3.clear();
 	v3.zi() = 6;
 
