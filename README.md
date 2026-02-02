@@ -48,5 +48,6 @@
 
 <h1>"House"</h1>
 
-<img width="903" height="381" alt="image" src="https://github.com/user-attachments/assets/0de1eb49-bfcb-44ac-8e5c-09775cf63f34" />
+<img width="904" height="379" alt="image" src="https://github.com/user-attachments/assets/9fdeabfc-ad4d-46e3-81f8-75c0ca2b1cc7" />
+
 
