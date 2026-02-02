@@ -14,7 +14,7 @@
 <img width="897" height="368" alt="image" src="https://github.com/user-attachments/assets/041140ad-150a-4320-a4d2-e2a1e42beb6e" />
 
 
-<h1>"Tree"</h1>
+<h1>Color Blend</h1>
 
 <img width="900" height="376" alt="image" src="https://github.com/user-attachments/assets/b2ee4f60-72c8-4c1b-b408-08632d7baf96" />
 
@@ -22,7 +22,7 @@
 
 <img width="898" height="366" alt="image" src="https://github.com/user-attachments/assets/646a7f07-8e3c-49c2-b906-ac27ed350811" />
 
-<h1>Opacity</h1>
+<h1>"Forest"</h1>
 
 <img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/9ec062e2-bc36-4fac-afb6-0905eecd8436" />
 
@@ -30,9 +30,12 @@
 
 <img width="908" height="383" alt="image" src="https://github.com/user-attachments/assets/ccfbc082-8610-400f-a2ed-d253e58344a1" />
 
-<h1>Color and light blend</h1>
+<h1>Animated tick frame</h1>
 
 <img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/9b61f9c8-9fc9-46a5-bd8c-f724c24831d1" />
 
 ![colors](https://github.com/user-attachments/assets/531ac9ab-d077-4e59-804d-065c5efd08f8)
 
+<h1>"Spotlight"</h1>
+
+<img width="1206" height="462" alt="image" src="https://github.com/user-attachments/assets/10975d3c-a9f4-4e0a-b9e8-b11dd3b4f900" />
