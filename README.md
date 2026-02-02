@@ -9,12 +9,13 @@
 <p>That's it. You can add and edit stuff in the folder to your likings, and for a working example, have a look at the <code>main.cpp</code> file in this repo.</p>
 <p>Also; have a look at the <code>self.hpp</code> file in the <code>photon-ascii</code> folder. There are some things to configure if you want/ need to.</p>
 <p>Examples are located at <code>examples/</code> Idk why I said that, makes sense haha, but here you go.</p>
-<h5>Have fun casting chars as photons!</h5>
 
 <h1>What can you do with it?</h1>
 
 <p>PhotonASCII provides a way to interact with light and self made structures (Yes, you can move and animate structures in the tick loop)</p>
 <p>With this, you can create games, rendering, paintings, interactive UI, fancy terminal stuff, and much more</p>
+
+<h4>Have fun casting chars as photons!</h4>
 
 <img width="897" height="368" alt="image" src="https://github.com/user-attachments/assets/041140ad-150a-4320-a4d2-e2a1e42beb6e" />
 
