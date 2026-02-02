@@ -23,7 +23,8 @@
 
 <h1>Color Blend</h1>
 
-<img width="900" height="376" alt="image" src="https://github.com/user-attachments/assets/b2ee4f60-72c8-4c1b-b408-08632d7baf96" />
+<img width="900" height="376" alt="image" src="https://github.com/user-attachments/assets/cad9f935-6677-4375-8e91-06de44247ec2" />
+
 
 <h1>Candles + Table</h1>
 
