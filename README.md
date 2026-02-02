@@ -11,6 +11,11 @@
 <p>Examples are located at <code>examples/</code> Idk why I said that, makes sense haha, but here you go.</p>
 <h5>Have fun casting chars as photons!</h5>
 
+<h1>What can you do with it?</h1>
+
+<p>PhotonASCII provides a way to interact with light and self made structures (Yes, you can move and animate structures in the tick loop)</p>
+<p>With this, you can create games, rendering, paintings, interactive UI, fancy terminal stuff, and much more</p>
+
 <img width="897" height="368" alt="image" src="https://github.com/user-attachments/assets/041140ad-150a-4320-a4d2-e2a1e42beb6e" />
 
 
