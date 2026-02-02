@@ -1,12 +1,11 @@
 #include "photon-ascii/self.hpp"
 
 void create() {
+	pa::Vec3 color(255, 255, 255);
     for (int y = 0; y < SCENE_HEIGHT; y++) {
         for (int x = 0; x < SCENE_WIDTH; x++) {
             pa::Pixel* p = pa::getPixelAt(x, y);
             if (!p) { continue; }
-            //Vec3 color(2 * x, y * 2, 255);
-            pa::Vec3 color(255, 255, 255);
 
             if (y == 19) {
                 color = pa::Vec3(0, 255, 0);
