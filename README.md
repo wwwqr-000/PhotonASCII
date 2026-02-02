@@ -28,7 +28,8 @@
 
 <h1>Candles + Table</h1>
 
-<img width="898" height="366" alt="image" src="https://github.com/user-attachments/assets/646a7f07-8e3c-49c2-b906-ac27ed350811" />
+<img width="898" height="366" alt="image" src="https://github.com/user-attachments/assets/50350cec-b490-4e3d-96a4-926daa6cbe81" />
+
 
 <h1>"Forest"</h1>
 
