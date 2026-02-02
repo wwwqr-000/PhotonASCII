@@ -18,8 +18,8 @@ void create() {
 
 void loadScene() {
 	pa::lights.push_back(pa::Light({SCENE_WIDTH / 2, 0}, -1, 0.2f, {255, 255, 255}));//Sun
-	pa::lights.push_back(pa::Light({0, SCENE_HEIGHT / 2}, -1, 0.2f, {255, 255, 255}));
-	pa::lights.push_back(pa::Light({SCENE_WIDTH, SCENE_HEIGHT / 2}, -1, 0.2f, {255, 255, 255}));
+	pa::lights.push_back(pa::Light({0, SCENE_HEIGHT / 2}, -1, 0.2f, {255, 83, 83}));//Left sun
+	pa::lights.push_back(pa::Light({SCENE_WIDTH, SCENE_HEIGHT / 2}, -1, 0.2f, {255, 0, 255}));//Right sun
 
 	pa::Vec3 floorColor(69, 50, 0);
 	pa::Vec3 wallColor(116, 56, 16);
@@ -55,7 +55,7 @@ void createLampStructure(pa::Vec2 pos) {
 	pixels.emplace_back(pa::Pixel({-3, 4}, color, '#', frameDensity));
 	pixels.emplace_back(pa::Pixel({3, 4}, color, '#', frameDensity));
 
-	pa::lights.push_back(pa::Light({0 + pos.xi(), 4 + pos.yi()}, 50, 1.5f, lColor));
+	pa::lights.push_back(pa::Light({0 + pos.xi(), 4 + pos.yi()}, 50, 1.3f, lColor));
 
 	pa::structures.push_back(pa::Structure(pixels, pos));
 }
