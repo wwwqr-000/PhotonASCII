@@ -33,7 +33,8 @@
 
 <h1>"Forest"</h1>
 
-<img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/9ec062e2-bc36-4fac-afb6-0905eecd8436" />
+<img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/017a9cb0-d1a2-4110-93ee-17eea7c410c9" />
+
 
 <h1>Bresenham + Lambert-Beer</h1>
 
