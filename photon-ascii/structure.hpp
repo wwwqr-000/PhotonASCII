@@ -47,7 +47,7 @@ void updateStructures() {//Used to set and update the structures
 
 			//Set the underlying pixels back to their previous pixels
 			for (Pixel &op : structure.originalPixels()) {
-				setPixel(op.pos(), op.color(), op.c(), op.opacity());
+				setPixel(op.pos(), op.baseColor(), op.c(), op.opacity());
 			}
 			//
 

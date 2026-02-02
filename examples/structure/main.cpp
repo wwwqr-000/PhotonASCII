@@ -57,7 +57,7 @@ int main() {
 	create();
 	loadScene();
 
-	createTestStructure({65, 7});
+	createTestStructure({45, 19});
 
 	int tickCount = 0;
     int v = 1;
@@ -65,13 +65,16 @@ int main() {
     while (pa::running) {
 		pa::updateStructures();
         pa::display();
-        pa::sleep(100);
-        if (tickCount >= 5) {
+        pa::sleep(75);
+        if (tickCount >= 20) {
         	tickCount = 0;
             v = v == 1 ? -1 : 1;
         }
 
-        pa::structures[0].pos().yi() += v;
+        pa::structures[0].pos().xi() += v;
+		if (tickCount % 2 == 0) {
+			pa::structures[0].pos().yi() -= v;
+		}
         tickCount += 1;
 	}
 
