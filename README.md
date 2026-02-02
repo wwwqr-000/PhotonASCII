@@ -38,7 +38,8 @@
 
 <h1>Bresenham + Lambert-Beer</h1>
 
-<img width="908" height="383" alt="image" src="https://github.com/user-attachments/assets/ccfbc082-8610-400f-a2ed-d253e58344a1" />
+<img width="908" height="383" alt="image" src="https://github.com/user-attachments/assets/9ace11c9-6d92-415d-a2b7-bc5211b8bc88" />
+
 
 <h1>Animated tick frame</h1>
 
