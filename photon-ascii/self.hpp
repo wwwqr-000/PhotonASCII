@@ -48,6 +48,7 @@ namespace pa {
 #include "models/include.hpp"
 
 namespace pa {
+	void start() { pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, Pixel()); }
 	void cls() { system(CLS_CMD); }
 	int ftoi(float f) { return static_cast<int>(std::round(f)); }
 	void sleep(int ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }

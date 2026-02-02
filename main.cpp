@@ -1,8 +1,6 @@
 #include "photon-ascii/self.hpp"
 
 void create() {
-    pa::pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, pa::Pixel());
-
     for (int y = 0; y < SCENE_HEIGHT; y++) {
         for (int x = 0; x < SCENE_WIDTH; x++) {
             pa::Pixel* p = pa::getPixelAt(x, y);
@@ -37,9 +35,10 @@ void worldGen() {//You can use {} instead of Vec2 or Vec3, etc
 }
 
 int main() {
+	pa::start();//Initialize the scene-screen
 	pa::cls();//You don't have to trigger this cls if you're using a tick-loop for frames, pa::display doesn't need it to update
 	pa::hideCursor();
-    pa::setCursorHandler();//When ctrl-c is triggered, show cursor again
+	pa::setCursorHandler();//When ctrl-c is triggered, show cursor again
 
     create();
     worldGen();
@@ -60,6 +59,6 @@ int main() {
 	}
 
 	pa::showCursor();
-	std::cout << "\n";
+	pa::cls();
 	return 0;
 }
