@@ -49,6 +49,15 @@ void createTestStructure(pa::Vec2 pos) {
 	pa::structures.push_back(pa::Structure(pixels, pos));
 }
 
+void display() {//Overwriting the default display method is possible, and showcased here
+	for (pa::Pixel &p : pa::pixels) {
+	traceColor(p, pa::lights);
+	std::cout << "\033[" << p.pos().yi() + 1 << ";" << p.pos().xi() + 1 << "H"
+   		<< "\033[38;2;" << p.color().xi() << ";" << p.color().yi() << ";" << p.color().zi() << "m"
+    	<< p.c() << "\033[0m";
+	}
+}
+
 int main() {
 	pa::start();
 	pa::hideCursor();
@@ -62,6 +71,8 @@ int main() {
 
 	int tickCount = 0;
     int v = 1;
+
+	pa::displayCallback = display;//Overwriting the default display method (This is how you do it)
 
     while (pa::running) {
 		pa::updateStructures();

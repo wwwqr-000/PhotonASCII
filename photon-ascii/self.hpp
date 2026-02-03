@@ -49,6 +49,8 @@ namespace pa {
 #include "structure.hpp"
 
 namespace pa {
+	using Callback = void(*)();//Used to overwrite display method
+
 	void start() { pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, Pixel()); }
 	void cls() { system(CLS_CMD); }
 	int ftoi(float f) { return static_cast<int>(std::round(f)); }
@@ -57,7 +59,7 @@ namespace pa {
 	void showCursor() { std::cout << "\033[?25h" << std::flush; }
 	void handleSigint(int) { showCursor(); running = false; }
 	void setCursorHandler() { std::signal(SIGINT, handleSigint); }
-	void display() {
+	void displayDefault() {
 		for (Pixel &p : pixels) {
     		traceColor(p, lights);
     		std::cout << "\033[" << p.pos().yi() + 1 << ";" << p.pos().xi() + 1 << "H"
@@ -65,4 +67,9 @@ namespace pa {
               		<< p.c() << "\033[0m";
 		}
 	}
+
+	Callback displayCallback = displayDefault;
+    void display() {
+        displayCallback();
+    }
 }
