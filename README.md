@@ -1,5 +1,3 @@
-[![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
-
 # PhotonASCII
 
 <h1>A terminal-based, raycast-light engine in C++ (2D)</h1>
