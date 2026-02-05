@@ -39,45 +39,49 @@ void setStructureInPixelVec(Structure &structure) {
 	}
 }
 
-void updateStructures() {//Used to set and update the structures
+void updateStructure(Structure &structure) {//Used to set and update a given structure
+	if ((structure.pos().xi() != structure.prevPos().xi()) || (structure.pos().yi() != structure.prevPos().yi())) {
+    	//Update structure pixels based on pos. Old offset seen pixels get's restored, and then origin pixels is-
+        // updated with the pixels that get asphalted soon after by the updated ownPixels's pos
+
+        //Set the underlying pixels back to their previous pixels
+        for (Pixel &op : structure.originalPixels()) {
+        	setPixel(op.pos(), op.baseColor(), op.c(), op.opacity());
+       	}
+       	//
+
+        //Set the original pixels based on the new location of the structure
+      	structure.originalPixels().clear();
+       	getPixelsFromStructurePos(structure.originalPixels(), structure);
+        //
+
+       	structure.prevPos() = structure.pos();//They are the same now again
+
+      	//Set the structure on the new location
+       	setStructureInPixelVec(structure);
+       	//
+
+	}
+    else if (!structure.drawnBefore()) {
+    	//Set the originalPixels before drawing the own pixels, offset is the same here. Draw the structure for-
+     	// the first time here
+
+     	//Fill originalPixels
+      	structure.originalPixels().clear();
+     	getPixelsFromStructurePos(structure.originalPixels(), structure);
+    	//
+
+       	//Set structure
+      	setStructureInPixelVec(structure);
+      	//
+
+      	structure.drawnBefore() = true;
+	}
+}
+
+void updateStructures() {//Used to set and update all structures
 	for (Structure &structure : structures) {
-		if ((structure.pos().xi() != structure.prevPos().xi()) || (structure.pos().yi() != structure.prevPos().yi())) {
-			//Update structure pixels based on pos. Old offset seen pixels get's restored, and then origin pixels is-
-			// updated with the pixels that get asphalted soon after by the updated ownPixels's pos
-
-			//Set the underlying pixels back to their previous pixels
-			for (Pixel &op : structure.originalPixels()) {
-				setPixel(op.pos(), op.baseColor(), op.c(), op.opacity());
-			}
-			//
-
-			//Set the original pixels based on the new location of the structure
-			structure.originalPixels().clear();
-			getPixelsFromStructurePos(structure.originalPixels(), structure);
-			//
-
-			structure.prevPos() = structure.pos();//They are the same now again
-
-			//Set the structure on the new location
-			setStructureInPixelVec(structure);
-			//
-
-		}
-		else if (!structure.drawnBefore()) {
-			//Set the originalPixels before drawing the own pixels, offset is the same here. Draw the structure for-
-			// the first time here
-
-			//Fill originalPixels
-			structure.originalPixels().clear();
-			getPixelsFromStructurePos(structure.originalPixels(), structure);
-			//
-
-			//Set structure
-			setStructureInPixelVec(structure);
-			//
-
-			structure.drawnBefore() = true;
-		}
+		updateStructure(structure);
 	}
 }
 
