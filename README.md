@@ -36,7 +36,7 @@
 <img width="907" height="384" alt="image" src="https://github.com/user-attachments/assets/017a9cb0-d1a2-4110-93ee-17eea7c410c9" />
 
 
-<h1>Bresenham + Lambert-Beer</h1>
+<h1>Shadow color cast</h1>
 
 <img width="908" height="383" alt="image" src="https://github.com/user-attachments/assets/9ace11c9-6d92-415d-a2b7-bc5211b8bc88" />
 
@@ -55,4 +55,15 @@
 
 <img width="904" height="379" alt="image" src="https://github.com/user-attachments/assets/9fdeabfc-ad4d-46e3-81f8-75c0ca2b1cc7" />
 
+<h1>Used mathematical laws/ algorithms</h1>
 
+<p>PhotonASCII uses two mathematical laws/ algorithms</p>
+
+### [Bresenham](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
+
+<img width="813" height="437" alt="image" src="https://github.com/user-attachments/assets/d32d2c95-31c7-4e33-9f7c-7117bf0ba8ca" />
+
+
+### [Lambert-Beer](https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law)
+
+<img width="586" height="495" alt="image" src="https://github.com/user-attachments/assets/76bbe9b6-9fe7-45dc-b962-a065ca78f831" />
