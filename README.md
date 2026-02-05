@@ -1,3 +1,5 @@
+[![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
+
 # PhotonASCII
 
 <h1>A terminal-based, raycast-light engine in C++ (2D)</h1>
@@ -16,8 +18,6 @@
 <p>With this, you can create games, rendering, paintings, interactive UI, fancy terminal stuff, and much more</p>
 
 <h4>Have fun casting chars as photons!</h4>
-
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
 
 <img width="1035" height="415" alt="image" src="https://github.com/user-attachments/assets/59170166-c2b0-4107-98a1-4860d435fb8f" />
 
