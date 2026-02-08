@@ -70,17 +70,24 @@ namespace pa {
 	void handleSigint(int) { showCursor(); running = false; }
 	void setCursorHandler() { std::signal(SIGINT, handleSigint); }
 	void displayDefault() {
-		for (int y = 0; y < SCREEN_HEIGHT; y++) {
-			for (int x = 0; x < SCREEN_WIDTH; x++) {
-				Pixel *p = getPixelAt(x + screenOffset.xi(), y + screenOffset.yi());
-				if (!p) { continue; }
+		Vec3 color(0, 0, 0);
+		char c = '@';
 
-				traceColor(*p, lights);
-				std::cout << "\033[" << y + 1 << ";" << x + 1 << "H"
-                    << "\033[38;2;" << p->color().xi() << ";" << p->color().yi() << ";" << p->color().zi() << "m"
-                    << p->c() << "\033[0m";
-			}
-		}
+	    for (int y = 0; y < SCREEN_HEIGHT; y++) {
+        	for (int x = 0; x < SCREEN_WIDTH; x++) {
+            	Pixel *p = getPixelAt(x + screenOffset.xi(), y + screenOffset.yi());
+
+            	if (p) {
+                	traceColor(*p, lights);
+                	c = p->c();
+                	color = p->color();
+            	}
+
+            	std::cout << "\033[" << y + 1 << ";" << x + 1 << "H"
+                	<< "\033[38;2;" << color.xi() << ";" << color.yi() << ";" << color.zi() << "m"
+                	<< c << "\033[0m";
+        	}
+    	}
 	}
 
 	Callback displayCallback = displayDefault;
