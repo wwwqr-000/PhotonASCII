@@ -5,7 +5,24 @@
 <h1>Instructions</h1>
 
 <p>First, you will need to get the <code>photon-ascii</code> folder and it's contents.</p>
-<p>Then, simply create a main.cpp file at the level of the folder, and place this line at the top of your<code>main.cpp</code> file: <code>#include "photon-ascii/self.hpp"</code></p>
+<p>Then, simply create a main.cpp file at the level of the folder, and place this line at the top of your<code>main.cpp</code> file:</p>
+<code>#define SCREEN_WIDTH 100</code>
+<br>
+<code>#define SCREEN_HEIGHT 20</code>
+<br>
+<code>#define SCENE_WIDTH 100</code>
+<br>
+<code>#define SCENE_HEIGHT 20</code>
+<br>
+<code>#define TERMINAL_ASPECT 2.0f</code>
+<br>
+<code>#define CLS_CMD "clear"</code>
+<br>
+<code>#include "../../photon-ascii/self.hpp"</code>
+<br><br>
+
+<p>And ofcourse, you can change all these defines.</p>
+
 <p>That's it. You can add and edit stuff in the folder to your likings, and for a working example, have a look at the <code>main.cpp</code> file in this repo.</p>
 <p>Also; have a look at the <code>self.hpp</code> file in the <code>photon-ascii</code> folder. There are some things to configure if you want/ need to.</p>
 <p>Examples are located at <code>examples/</code> Idk why I said that, makes sense haha, but here you go.</p>
