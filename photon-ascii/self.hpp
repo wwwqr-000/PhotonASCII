@@ -9,9 +9,18 @@
 #include <atomic>
 #include <csignal>
 
-//Dimensions of the screen/ canvas in char-count
+//Dimensions of the screen and scene in char-count
+
+//The dimensions of the screen displayed
+#define SCREEN_WIDTH 100
+#define SCREEN_HEIGHT 20
+//
+
+//The dimensions of the scene (The total space for structures, the world, the scene, whatever you want to call it)
 #define SCENE_WIDTH 100
 #define SCENE_HEIGHT 20
+//
+
 //
 
 //The aspect ratio of the terminal (Default value 2.0f)
@@ -42,6 +51,7 @@ namespace pa {
 namespace pa {
 	std::vector<Light> lights;
 	std::atomic<bool> running(true);
+	Vec2 screenOffset(0, 0);
 }
 //
 
@@ -51,7 +61,7 @@ namespace pa {
 namespace pa {
 	using Callback = void(*)();//Used to overwrite display method
 
-	void start() { pixels.assign(SCENE_WIDTH * SCENE_HEIGHT, Pixel()); }
+	void start() { pixels.assign(SCENE_WIDTH * SCENE_WIDTH, Pixel()); }
 	void cls() { system(CLS_CMD); }
 	int ftoi(float f) { return static_cast<int>(std::round(f)); }
 	void sleep(int ms) { std::this_thread::sleep_for(std::chrono::milliseconds(ms)); }
@@ -60,11 +70,16 @@ namespace pa {
 	void handleSigint(int) { showCursor(); running = false; }
 	void setCursorHandler() { std::signal(SIGINT, handleSigint); }
 	void displayDefault() {
-		for (Pixel &p : pixels) {
-    		traceColor(p, lights);
-    		std::cout << "\033[" << p.pos().yi() + 1 << ";" << p.pos().xi() + 1 << "H"
-              		<< "\033[38;2;" << p.color().xi() << ";" << p.color().yi() << ";" << p.color().zi() << "m"
-              		<< p.c() << "\033[0m";
+		for (int y = 0; y < SCREEN_HEIGHT; y++) {
+			for (int x = 0; x < SCREEN_WIDTH; x++) {
+				Pixel *p = getPixelAt(x + screenOffset.xi(), y + screenOffset.yi());
+				if (!p) { continue; }
+
+				traceColor(*p, lights);
+				std::cout << "\033[" << y + 1 << ";" << x + 1 << "H"
+                    << "\033[38;2;" << p->color().xi() << ";" << p->color().yi() << ";" << p->color().zi() << "m"
+                    << p->c() << "\033[0m";
+			}
 		}
 	}
 

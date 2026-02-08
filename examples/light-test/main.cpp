@@ -1,4 +1,4 @@
-#include "photon-ascii/self.hpp"
+#include "../../photon-ascii/self.hpp"
 
 void create() {
 	pa::Vec3 color(255, 255, 255);
