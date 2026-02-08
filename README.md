@@ -18,7 +18,7 @@
 <br>
 <code>#define CLS_CMD "clear"</code>
 <br>
-<code>#include "../../photon-ascii/self.hpp"</code>
+<code>#include "photon-ascii/self.hpp"</code>
 <br><br>
 
 <p>And ofcourse, you can change all these defines.</p>
