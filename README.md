@@ -5,7 +5,7 @@
 <h1>Instructions</h1>
 
 <p>First, you will need to get the <code>photon-ascii</code> folder and it's contents.</p>
-<p>Then, simply create a main.cpp file at the level of the folder, and place this line at the top of your<code>main.cpp</code> file:</p>
+<p>Then, simply create a main.cpp file at the level of the folder, and place these lines at the top of your<code>main.cpp</code> file:</p>
 <code>#define SCREEN_WIDTH 100</code>
 <br>
 <code>#define SCREEN_HEIGHT 20</code>
