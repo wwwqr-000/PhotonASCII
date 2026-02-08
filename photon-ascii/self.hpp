@@ -12,23 +12,23 @@
 //Dimensions of the screen and scene in char-count
 
 //The dimensions of the screen displayed
-#define SCREEN_WIDTH 100
-#define SCREEN_HEIGHT 20
+//#define SCREEN_WIDTH 100
+//#define SCREEN_HEIGHT 20
 //
 
 //The dimensions of the scene (The total space for structures, the world, the scene, whatever you want to call it)
-#define SCENE_WIDTH 100
-#define SCENE_HEIGHT 20
+//#define SCENE_WIDTH 100
+//#define SCENE_HEIGHT 20
 //
 
 //
 
 //The aspect ratio of the terminal (Default value 2.0f)
-#define TERMINAL_ASPECT 2.0f
+//#define TERMINAL_ASPECT 2.0f
 //
 
 //The command to clear the terminal on your OS (windows: cls, linux: clear)
-#define CLS_CMD "clear"
+//#define CLS_CMD "clear"
 //
 
 //Other defines

@@ -1,3 +1,13 @@
+#define SCREEN_WIDTH 100
+#define SCREEN_HEIGHT 20
+
+#define SCENE_WIDTH 100
+#define SCENE_HEIGHT 20
+
+#define TERMINAL_ASPECT 2.0f
+
+#define CLS_CMD "clear"
+
 #include "../../photon-ascii/self.hpp"
 
 void create() {
