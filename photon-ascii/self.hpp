@@ -8,6 +8,7 @@
 #include <thread>
 #include <atomic>
 #include <csignal>
+#include <string>
 
 //Dimensions of the screen and scene in char-count
 
@@ -52,6 +53,7 @@ namespace pa {
 	std::vector<Light> lights;
 	std::atomic<bool> running(true);
 	Vec2 screenOffset(0, 0);
+	std::string frameTxtBuffer;
 }
 //
 
@@ -70,6 +72,7 @@ namespace pa {
 	void handleSigint(int) { showCursor(); running = false; }
 	void setCursorHandler() { std::signal(SIGINT, handleSigint); }
 	void displayDefault() {
+		frameTxtBuffer = "";
 		Vec3 color(0, 0, 0);
 		char c = '@';
 
@@ -83,11 +86,24 @@ namespace pa {
                 	color = p->color();
             	}
 
-            	std::cout << "\033[" << y + 1 << ";" << x + 1 << "H"
-                	<< "\033[38;2;" << color.xi() << ";" << color.yi() << ";" << color.zi() << "m"
-                	<< c << "\033[0m";
+				frameTxtBuffer += "\033[";
+                frameTxtBuffer += std::to_string(y + 1);
+                frameTxtBuffer += ";";
+                frameTxtBuffer += std::to_string(x + 1);
+                frameTxtBuffer += "H";
+                frameTxtBuffer += "\033[38;2;";
+                frameTxtBuffer += std::to_string(color.xi());
+                frameTxtBuffer += ";";
+                frameTxtBuffer += std::to_string(color.yi());
+                frameTxtBuffer += ";";
+                frameTxtBuffer += std::to_string(color.zi());
+                frameTxtBuffer += "m";
+                frameTxtBuffer += c;
+                frameTxtBuffer += "\033[0m";
         	}
     	}
+
+		std::cout << frameTxtBuffer;
 	}
 
 	Callback displayCallback = displayDefault;

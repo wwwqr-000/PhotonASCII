@@ -60,6 +60,7 @@ void createTestStructure(pa::Vec2 pos) {
 }
 
 void display() {//Overwriting the default display method is possible, shown here.
+	pa::frameTxtBuffer = "";
 	char c = '@';
 	pa::Vec3 color(0, 0, 0);
 
@@ -73,11 +74,24 @@ void display() {//Overwriting the default display method is possible, shown here
 				color = p->color();
 			}
 
-            std::cout << "\033[" << y + 1 << ";" << x + 1 << "H"
-                << "\033[38;2;" << color.xi() << ";" << color.yi() << ";" << color.zi() << "m"
-                << c << "\033[0m";
+		  	pa::frameTxtBuffer += "\033[";
+            pa::frameTxtBuffer += std::to_string(y + 1);
+            pa::frameTxtBuffer += ";";
+            pa::frameTxtBuffer += std::to_string(x + 1);
+            pa::frameTxtBuffer += "H";
+            pa::frameTxtBuffer += "\033[38;2;";
+            pa::frameTxtBuffer += std::to_string(color.xi());
+            pa::frameTxtBuffer += ";";
+            pa::frameTxtBuffer += std::to_string(color.yi());
+            pa::frameTxtBuffer += ";";
+            pa::frameTxtBuffer += std::to_string(color.zi());
+            pa::frameTxtBuffer += "m";
+            pa::frameTxtBuffer += c;
+            pa::frameTxtBuffer += "\033[0m";
         }
 	}
+
+	std::cout << pa::frameTxtBuffer;
 }
 
 int main() {
